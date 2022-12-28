@@ -38,7 +38,7 @@ body {
     top: 130px;
     width: 285px;
     height: 160px;
-    background: url(./interactive-card-details-form-main/images/bg-card-front.png);
+    background: url(./images/bg-card-front.png);
     background-size: cover;
     border-radius: 10px;
 }
@@ -80,7 +80,7 @@ body {
     left: 25%;
     width: 285px;
     height: 160px;
-    background: url(./interactive-card-details-form-main/images/bg-card-back.png);
+    background: url(./images/bg-card-back.png);
     background-size: cover;
     border-radius: 10px;
 }
@@ -99,7 +99,7 @@ body {
     left: 0;
     width: 100vw;
     height: 60vw;
-    background: no-repeat url(./interactive-card-details-form-main/images/bg-main-mobile.png);
+    background: no-repeat url(./bg-main-mobile.png);
     background-size: cover;
 }
 .form {
@@ -195,7 +195,7 @@ button {
    .bg {
     width: 30%;
     height: 100%;
-    background: no-repeat url(./interactive-card-details-form-main/images/bg-main-desktop.png);
+    background: no-repeat url(./bg-main-desktop.png);
     }
     .front {
         width: 380px;
