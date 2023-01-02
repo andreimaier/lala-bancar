@@ -60,7 +60,7 @@ number.addEventListener("input", () => {
   return seed + next;
 }, ""); 
     number.value = formatNumber(number.value.replaceAll(" ", ""));
-    if (/^(\d+\s\d+)+$/.test(number.value)) {
+    if (/^(\d{4}\s\d{4}\s\d{4}\s\d{4})+$/.test(number.value)) {
         showNumber.textContent = `${number.value}`
         errorNumber.classList.remove('error__active') 
         errorNumber.classList.add('error__inactive') 
@@ -101,6 +101,7 @@ month.addEventListener("input", () => {
         showMonth.textContent = `${month.value} `
         month.classList.add('input__correct')
         month.classList.remove('input__error') 
+        document.getElementById("buton").disabled = false;
     } else if (month.value.length == 0) {
         errorDate.classList.add('error__active')
         errorDate.classList.remove('error__inactive')
@@ -111,6 +112,7 @@ month.addEventListener("input", () => {
         errorDate.classList.add('error__active')
         errorDate.classList.remove('error__inactive')
         errorDate.textContent = "Wrong value"
+        document.getElementById("buton").disabled = true; 
     }
 }})
 month.addEventListener('focusin', () => {
@@ -121,7 +123,7 @@ month.addEventListener("focusout", () => {
         errorDate.classList.remove('error__active') 
         errorDate.classList.add('error__inactive') 
         month.classList.add('input__correct')
-        month.classList.remove('input__error') 
+        month.classList.remove('input__error')     
     } else if (month.value.length == 0) {
         errorDate.classList.add('error__active') 
         month.classList.remove('input__correct')
@@ -140,11 +142,11 @@ month.addEventListener("focusout", () => {
 
 year.addEventListener("input", () => { 
     if (year.value.length == 2) {
-    if (year.value < 33 && year.value > 21)  {
-        
+    if (year.value < 40 && year.value > 22)  {
         showYear.textContent = `${year.value}`
         year.classList.add('input__correct')
         year.classList.remove('input__error') 
+        document.getElementById("buton").disabled = false;
     } else if (year.value.length == 0) {
         year.classList.remove('input__correct')
         year.classList.add('input__error') 
@@ -157,6 +159,8 @@ year.addEventListener("input", () => {
         errorDate.classList.add('error__active')
         errorDate.classList.remove('error__inactive')
         errorDate.textContent = "Wrong value"
+        document.getElementById("buton").disabled = true;
+        
     }
 }}) 
 year.addEventListener('focusin', () => {
@@ -172,12 +176,14 @@ year.addEventListener("focusout", () => {
         errorDate.classList.add('error__active') 
         year.classList.remove('input__correct')
         year.classList.add('input__error')
-        errorDate.textContent = "Can\'t be blank"  
+        errorDate.textContent = "Can\'t be blank" 
+        
     } else {
         errorDate.classList.add('error__active') 
         errorDate.textContent = "Wrong value"
         year.classList.remove('input__correct')
         year.classList.add('input__error')
+        
     } 
 })
 
@@ -204,12 +210,14 @@ cvc.addEventListener("focusout", () => {
         cvc.classList.remove('input__correct')
         cvc.classList.add('input__error')
         errorCvc.textContent = "Can\'t be blank"  
+        
     } else if(!/^\d+$/.test(cvc.value)) {
         errorCvc.classList.add('error__active') 
         errorCvc.classList.remove('error__inactive') 
         cvc.classList.remove('input__correct')
         cvc.classList.add('input__error')
         errorCvc.textContent = "Wrong value"  
+        
     } else {
         errorCvc.classList.remove('error__active') 
         errorCvc.classList.add('error__inactive') 

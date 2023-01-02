@@ -44,6 +44,7 @@
             name="name"
             required
             id="name"
+            pattern="^[a-z .'-]+$"
             maxlength="18"
             placeholder="e.g. Jane Appleseed"
           />
@@ -58,6 +59,7 @@
             type="tel"
             required
             name="card-no"
+            pattern="^(\d{4}\s\d{4}\s\d{4}\s\d{4})+$"
             id="card-no"
             maxlength="19"
             placeholder="e.g. 1234 5678 9123 0000"
@@ -73,6 +75,7 @@
                 required
                 type="tel"
                 maxlength="2"
+                pattern="\d{2}"
                 name="expiry"
                 id="month"
                 placeholder="MM"
@@ -82,6 +85,7 @@
                 required
                 type="tel"
                 maxlength="2"
+                pattern="\d{2}"
                 name="expiry"
                 id="year"
                 placeholder="YY"
@@ -96,6 +100,7 @@
             <input
               type="tel"
               name="cvc"
+              pattern="\d{3}"
               id="cvc"
               required
               maxlength="3"
@@ -104,7 +109,12 @@
             <span class="error__cvc">Can't be blank</span>
           </div>
         </div>
-        <button onclick="showText()" class="form__button" type="submit">
+        <button
+          onclick="showText()"
+          id="buton"
+          class="form__button"
+          type="submit"
+        >
           Confirm
         </button>
       </form>
