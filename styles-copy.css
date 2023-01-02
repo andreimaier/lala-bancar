@@ -1,32 +1,53 @@
-* {
-    margin: 0;
-    border: 0;
+*, *::before, *::after {
     box-sizing: border-box;
 }
-html {
-    transform: 1;
-    transition: 400ms;
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
 }
+/* html {
+    color-scheme: dark light;
+}  */
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+p {
+    line-height: 1.5;
+}
+img, video, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+
 :root {
     --font: hsl(278, 68%, 11%);
     --GRI: hsl(279, 6%, 55%);
-    --gri: hsl(270, 3%, 87%);
-    --errors: hsl(0, 100%, 66%);
+    --gri: #dedddf;
+    --errors: rgb(255, 82, 82);
     --active: hsl(249, 99%, 64%);
-    --col2: hsl(278, 94%, 30%);   
+    --col2: #600594;  
+    
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-body {  
+body {
     color: var(--font);
-    /* overflow-y: hidden; */
-    overflow-x: hidden;
-    font-family: 'Space Grotesk'; 
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Space Grotesk';
     font-weight: 500;
     font-size: 18px;
-    max-width: 350px;
-    margin: 0 auto;
-    animation: load ease-in-out 3s;
-    animation-fill-mode: both;
+    animation: load ease-in-out 2s; 
+    animation-fill-mode:both; 
+    background: no-repeat url(./images/bg-main-mobile.png);
+    background-size: 100vw ;
 }
 @keyframes load {
     0% {
@@ -38,112 +59,100 @@ body {
 }
 .front {
     position: absolute;
-    top: 130px;
-    width: 285px;
-    height: 160px;
+    top: 40vw;
+    left: 10%;
+    width: 70vw;
+    aspect-ratio: 1.586;
     background: url(./images/bg-card-front.png);
     background-size: cover;
     border-radius: 10px;
 }
-.logo {
-    width: 60px;
+.front__logo {
+    width: 15vw;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 5vw;
+    left: 5vw;
 }
-
-.card-no {
+.front__number {
     position: absolute;
-    top: 85px;
-    left: 20px;
+    top: 55%;
+    left: 8%;
     color: white;
-    letter-spacing: 2px;
-    word-spacing: 2px;
+    font-size: 4vw;
+    letter-spacing: 0.5vw;
+    word-spacing: 0.5vw;
 }
-.name {
+.front__name {
     position: absolute;
-    top: 125px;
-    left: 20px;
+    top: 75%;
+    left: 8%;
     color: white;
-    font-size: 14px;
+    font-size: 4vw;
     font-weight: 400;
     text-transform: uppercase;
 }
-.expiry {
+.front__expiry {
+    display: flex;
+    gap: 0.1rem;
     position: inherit;
-    top: 125px;
-    left: 230px;
+    top: 75%;
+    left: 75%;
     color: white;
-    font-size: 14px;
+    font-size: 4vw;
     font-weight: 400;
 }
 .back {
     position: absolute;
-    top: 40px;
-    left: 25%;
-    width: 285px;
-    height: 160px;
+    top: 10vw;
+    right: 1rem;
+    width: 70vw;
+    aspect-ratio: 1.586;
     background: url(./images/bg-card-back.png);
     background-size: cover;
     border-radius: 10px;
 }
-.back p {
+.back__cvc {
     position: absolute;
-    top: 71px;
-    right: 30px;
+    top: 19vw;
+    right: 10%;
     color: rgba(255, 255, 255, 0.888);
     font-weight: 400;
-    font-size: 14px;
+    font-size: 4vw;
 }
-.bg {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 60vw;
-    background: no-repeat url(./images/bg-main-mobile.png);
-    background-size: cover;
-}
-
-.thank-you {
-    padding-top: 3rem;
-}
-.check {
-    width: 80px;
+.container {
     display: flex;
-    height: 80px;
-    background: linear-gradient(#6448fe, #600594);
-    border-radius: 50%;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem auto;
-    margin-top: 300px;
+    flex-direction: column;
+    margin-top: calc(70vw + 5rem);
+    width: 80vw;
 }
-
-h1 {
+.container__check {
+    width: min(4rem, 50vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.container__title {
     text-transform: uppercase;
     text-align: center;
-    font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
+    font-size: 1.4rem;
     margin: 1rem;
 }
-.text {
+.container__text {
     color: var(--GRI);
     text-align: center;
-    margin-top: 2rem;
     margin-bottom: 2.5rem;
+    font-size: 1rem;
 }
-button {
+.container__button {
     width: 100%;
+    max-width: 90vw;
+    margin: 0 auto;
 }
-
-
-button {
+.container__button {
     background-color: var(--font);
     color: white;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 10px;
     border: none;
     font-size: 1rem;
@@ -152,59 +161,159 @@ button {
 
 
 
-
-
-
-
-@media screen and  (min-width:450px) {
+@media screen and  (min-width: 68.75em) {
     body {
+        min-height: 100vh;
         max-width: 100vw;
+        background: no-repeat url(./images/bg-main-desktop.png);
+        display: flex;
+        justify-content: center;
     }
-   .bg {
-    background: no-repeat url(./images/bg-main-desktop.png);
-    width: 30%;
-    height: 100%;
-    }
-    .front {
-        width: 380px;
-        height: 200px;
-        top: 150px;
-        left: 160px;
-    }
-    .card-no{
-        font-size: 20px;
-        letter-spacing: 3px;
-        top: 110px;
-        left: 30px;
 
+    .front {
+        width: 445px;
+        aspect-ratio: 1.8;
+        top: 50px;
+        left: 5vw;
     }
-    .expiry {
-        top: 165px;
-        left: 320px;
+    
+    .front__logo {
+        width: 60px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
-    .name{
-        top: 165px;
-        left: 30px;
+
+    .front__number {
+        position: absolute;
+        top: 120px;
+        left: 20px;
+        color: white;
+        font-size: 24px;
+        letter-spacing: 3px;
+        word-spacing: 4px;
+    }
+    .front__name {
+        position: absolute;
+        top: 190px;
+        left: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    .front__expiry {
+        position: inherit;
+        top: 190px;
+        left: 360px;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
     }
     .back {
-        top: 370px;
-        left: 240px;
-        width: 380px;
-        height: 200px;
+        top: 340px;
+        left: 12vw;
+        width: 445px;
+        aspect-ratio: 1.8;
     }
-    .back p {
+    .back__cvc {
         font-size: 16px;
-        top: 95px;
-        left: 310px
+        top: 110px;
+        left: 360px;
     }
-    .thank-you {
-        max-width: 380px;
-        margin: -100px 0 0 55%;
+    .container {
+        margin: 0 0 0 480px;
+        max-width: 300px;
         padding-top: 0;
     }
     .form input {
         padding: 0.6rem;
     }
-}   button {
-    font-size: 14px;
+   .container__button {
+    font-size: 16px;
+}
+}
+
+
+
+
+
+
+@media screen and (min-width: 26.875em) and (max-width: 68.75em) {
+    body {
+        min-height: 100vh;
+        max-width: 100vw;
+        background: no-repeat url(./images/bg-main-desktop.png);
+        background-size: calc(50px + 20vh) 100%;
+       /* justify-content: flex-end; */
+        display: flex;
+        justify-content: center;
+    }
+   
+    .front {
+        position: absolute;
+        top: calc( 0.5 * 20vw);
+        left: 10%;
+        width: calc( 0.5 * 70vw);
+        aspect-ratio: 1.886;
+        background: url(./images/bg-card-front.png);
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .front__logo {
+        width: calc( 0.5 * 15vw);
+        position: absolute;
+        top: calc( 0.5 * 5vw);
+        left: calc( 0.5 * 5vw);
+    }
+    
+    .front__number {
+        position: absolute;
+        top: 55%;
+        left: 8%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        letter-spacing: calc( 0.5 * 0.5vw);
+        word-spacing: calc( 0.5 * 0.5vw);
+    }
+    .front__name {
+        position: absolute;
+        top: 75%;
+        left: 8%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    .front__expiry {
+        position: inherit;
+        top: 75%;
+        left: 75%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        font-weight: 400;
+    }
+    .back {
+        position: absolute;
+        top: calc(0.5 * 65vw);
+        left: calc(0.5 * 30vw);
+        width: calc(0.5 * 70vw);
+        aspect-ratio: 1.886;
+        background: url(./images/bg-card-back.png);
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .back__cvc {
+        position: absolute;
+        top: calc( 0.5 * 16vw);
+        right: 13%;
+        color: rgba(255, 255, 255, 0.888);
+        font-weight: 400;
+        font-size: calc( 0.5 * 4vw);
+    }
+    .container { 
+        margin: 0 0 0 calc(60px + 35vw);
+        width: 40vw;
+        max-width: 300px;
+    }
 }

@@ -1,28 +1,53 @@
-* {
-    margin: 0;
-    border: 0;
+*, *::before, *::after {
     box-sizing: border-box;
 }
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+/* html {
+    color-scheme: dark light;
+}  */
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+p {
+    line-height: 1.5;
+}
+img, video, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+
 :root {
     --font: hsl(278, 68%, 11%);
     --GRI: hsl(279, 6%, 55%);
-    --gri: hsl(270, 3%, 87%);
-    --errors: hsl(0, 100%, 66%);
+    --gri: #dedddf;
+    --errors: rgb(255, 82, 82);
     --active: hsl(249, 99%, 64%);
-    --col2: hsl(278, 94%, 30%);  
+    --col2: #600594;  
+    
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 body {
-    /* overflow-y: hidden; */
     color: var(--font);
-    font-family: sans-serif;
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Space Grotesk';
     font-weight: 500;
     font-size: 18px;
-    max-width: 350px;
-    margin: 0 auto;
-    animation: load ease-in-out 3s;
-    animation-fill-mode:both;
+    animation: load ease-in-out 2s; 
+    animation-fill-mode:both; 
+    background: no-repeat url(./images/bg-main-mobile.png);
+    background-size: 100vw ;
 }
 @keyframes load {
     0% {
@@ -32,140 +57,105 @@ body {
         opacity: 1;
     }
 }
-
 .front {
     position: absolute;
-    top: 130px;
-    width: 285px;
-    height: 160px;
+    top: 40vw;
+    left: 10%;
+    width: 70vw;
+    aspect-ratio: 1.586;
     background: url(./images/bg-card-front.png);
     background-size: cover;
     border-radius: 10px;
 }
-.logo {
-    width: 60px;
+.front__logo {
+    width: 15vw;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 5vw;
+    left: 5vw;
 }
-
-.card-no {
+.front__number {
     position: absolute;
-    top: 85px;
-    left: 20px;
+    top: 55%;
+    left: 8%;
     color: white;
-    letter-spacing: 2px;
-    word-spacing: 2px;
+    font-size: 4vw;
+    letter-spacing: 0.5vw;
+    word-spacing: 0.5vw;
 }
-.name {
+.front__name {
     position: absolute;
-    top: 125px;
-    left: 20px;
+    top: 75%;
+    left: 8%;
     color: white;
-    font-size: 14px;
+    font-size: 4vw;
     font-weight: 400;
     text-transform: uppercase;
 }
-.expiry {
+.front__expiry {
+    display: flex;
+    gap: 0.1rem;
     position: inherit;
-    top: 125px;
-    left: 230px;
+    top: 75%;
+    left: 75%;
     color: white;
-    font-size: 14px;
+    font-size: 4vw;
     font-weight: 400;
 }
 .back {
     position: absolute;
-    top: 40px;
-    left: 25%;
-    width: 285px;
-    height: 160px;
+    top: 10vw;
+    right: 1rem;
+    width: 70vw;
+    aspect-ratio: 1.586;
     background: url(./images/bg-card-back.png);
     background-size: cover;
     border-radius: 10px;
 }
-.back p {
+.back__cvc {
     position: absolute;
-    top: 71px;
-    right: 30px;
+    top: 19vw;
+    right: 10%;
     color: rgba(255, 255, 255, 0.888);
     font-weight: 400;
-    font-size: 14px;
+    font-size: 4vw;
 }
-.bg {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 60vw;
-    background: no-repeat url(./bg-main-mobile.png);
-    background-size: cover;
+.container {
+    display: flex;
+    flex-direction: column;
 }
 .form {
     display: flex;
     flex-direction: column;
-    max-width: 350px;
-    margin: 320px auto;
-    margin-bottom: 140px;
+    width: 85vw;
+    gap: 1rem;
+    margin: 100vw 0;
+    margin-bottom: auto;
 }
-label {
+.form__label {
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    padding-block: 0.5rem;
-    padding-top: 0.7rem;
-    
-
-}
-.form div {
-   
-    
-    
-    
-    
+    font-size: 1rem;
+    letter-spacing: 0.5px; 
 }
 .form input {
-    border: 1px solid var(--gri);
+    border: 2px solid var(--gri);
     border-radius: 10px;
     padding: 1rem;
-    margin-bottom: 0.3rem;
+    margin-top: 0.5rem;
+}
+.input__error {
+    outline: 2px solid var(--errors);
+    outline-offset: -2px;
+    border-radius: 10px;    
+}
+.input__correct {
+    outline: 2px solid var(--col2);
+    outline-offset: -2px;
+    border-radius: 10px;
 }
 input::placeholder {
     color: var(--GRI);
 }
-
-
-
-
-.grid {
-    width: 350px;
-    display: flex;
-    /* grid-template-columns: repeat(4, 1fr); */
-    margin-bottom: 0.3rem;
-}   
-.grid > div {
-    display: flex;
-    flex-direction: row;
-}
-/* .grid :nth-child(1) {
-    grid-column: 1/3;
-    grid-row: 1;
-}
-.grid :nth-child(4) {
-    grid-column: 3/5;
-    grid-row: 1;
-}
-.grid :nth-child(2) {
-    
-}
-.grid :nth-child(3) {
-    
-}
-.grid :nth-child(5) {
-    grid-column: 3/5;
-}  */
-button {
+.form__button {
     background-color: var(--font);
     color: white;
     padding: 1rem;
@@ -174,68 +164,216 @@ button {
     font-size: 1rem;
     letter-spacing: 1px;
 }
-
-
-
-.thanks {
-    position: relative;
-    border: 1px solid black;
-}
-.thanks .front {
-    right: 15%;
+.inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;   
 }
 
+.inline__expiry__inline input {
+    padding-inline: 0.5rem;
+    max-width: 5rem;
+    text-align: center;
+}
+.inline__expiry input::placeholder {
+    text-align: center;
+}
+.inline__cvc {
+    display: flex;
+    flex-direction: column;
+}
+.inline__cvc input {
+    max-width: 10.5rem;
+}
+span {
+    display: block;
+    transform: scale(0);
+}
+.error__active {
+    font-size: 0.8rem; 
+    display: block;
+    padding-block: 0.6rem;
+    color: var(--errors); 
+    transform: scale(1);
+    transition: 300ms; 
+}
+.error__inactive {
+    font-size: 0.8rem; 
+    display: block;
+    visibility: hidden;
+    padding-block: 0.6rem;
+    transition: 300ms;
+}
+.form__button {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
 
 
 
-@media screen and  (min-width:450px) {
+
+@media screen and (min-width: 68.75em) {
     body {
+        min-height: 100vh;
         max-width: 100vw;
+        background: no-repeat url(./images/bg-main-desktop.png);
+        display: flex;
+        justify-content: center;
     }
-   .bg {
-    width: 30%;
-    height: 100%;
-    background: no-repeat url(./bg-main-desktop.png);
-    }
+   
     .front {
-        width: 380px;
-        height: 200px;
-        top: 150px;
-        left: 160px;
+        width: 445px;
+        aspect-ratio: 1.8;
+        top: 50px;
+        left: 5vw;
     }
-    .card-no{
-        font-size: 20px;
-        letter-spacing: 3px;
-        top: 110px;
-        left: 30px;
+    
+    .front__logo {
+        width: 60px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
 
+    .front__number {
+        position: absolute;
+        top: 120px;
+        left: 20px;
+        color: white;
+        font-size: 24px;
+        letter-spacing: 3px;
+        word-spacing: 4px;
     }
-    .expiry {
-        top: 165px;
-        left: 320px;
+    .front__name {
+        position: absolute;
+        top: 190px;
+        left: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
     }
-    .name{
-        left: 30px;
-        top: 165px;
+    .front__expiry {
+        position: inherit;
+        top: 190px;
+        left: 360px;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
     }
     .back {
-        top: 370px;
-        left: 240px;
-        width: 380px;
-        height: 200px;
+        top: 340px;
+        left: 12vw;
+        width: 445px;
+        aspect-ratio: 1.8;
     }
-    .back p {
+    .back__cvc {
         font-size: 16px;
-        top: 95px;
-        left: 310px
+        top: 110px;
+        left: 360px;
     }
     .form {
-        max-width: 380px;
-        margin: 200px 0 0 55%;
+        
+        margin: 0 0 0 480px;
+        max-width: 400px;
+        /* padding: 5rem; */
     }
     .form input {
         padding: 0.6rem;
     }
-}   button {
+    .inline__cvc input {
+        max-width: 15rem;
+    }
+       button {
     font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 26.875em) and (max-width: 68.75em) {
+    body {
+        min-height: 100vh;
+        max-width: 100vw;
+        background: no-repeat url(./images/bg-main-desktop.png);
+        background-size: calc(50px + 20vh) 100%;
+       /* justify-content: flex-end; */
+        display: flex;
+        justify-content: center;
+    }
+   
+    .front {
+        position: absolute;
+        top: calc( 0.5 * 20vw);
+        left: 10%;
+        width: calc( 0.5 * 70vw);
+        aspect-ratio: 1.886;
+        background: url(./images/bg-card-front.png);
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .front__logo {
+        width: calc( 0.5 * 15vw);
+        position: absolute;
+        top: calc( 0.5 * 5vw);
+        left: calc( 0.5 * 5vw);
+    }
+    
+    .front__number {
+        position: absolute;
+        top: 55%;
+        left: 8%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        letter-spacing: calc( 0.5 * 0.5vw);
+        word-spacing: calc( 0.5 * 0.5vw);
+    }
+    .front__name {
+        position: absolute;
+        top: 75%;
+        left: 8%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    .front__expiry {
+        position: inherit;
+        top: 75%;
+        left: 75%;
+        color: white;
+        font-size: calc( 0.5 * 4vw);
+        font-weight: 400;
+    }
+    .back {
+        position: absolute;
+        top: calc(0.5 * 65vw);
+        left: calc(0.5 * 30vw);
+        width: calc(0.5 * 70vw);
+        aspect-ratio: 1.886;
+        background: url(./images/bg-card-back.png);
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .back__cvc {
+        position: absolute;
+        top: calc( 0.5 * 16vw);
+        right: 13%;
+        color: rgba(255, 255, 255, 0.888);
+        font-weight: 400;
+        font-size: calc( 0.5 * 4vw);
+    }
+    .form { 
+        margin: 0 0 0 calc(60px + 35vw);
+        width: 40vw;
+        max-width: 300px;
+    }
+    .form input {
+        padding: 0.6rem;
+    }
+    button {
+        font-size: 14px;
+    }
+    .inline__cvc input {
+        max-width: 7rem;
+    }
 }

@@ -3,38 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/x-icon"
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <script src="./thank-you.js" defer></script>
     <link rel="stylesheet" href="./styles-copy.css" />
     <title>Frontend Mentor | Interactive cardBancar details form</title>
-    <script src="./card.js" defer></script>
   </head>
-  <body>
+  <body onload="getText()">
     <main>
       <div class="back">
-        <p class="cvc">000</p>
+        <p class="back__cvc">000</p>
       </div>
       <div class="front">
-        <img class="logo" src="./images/card-logo.svg" alt="card-logo" />
+        <img class="front__logo" src="./images/card-logo.svg" alt="" />
 
-        <p class="card-no">0000 0000 0000 0000</p>
-        <p class="name">Jane Appleseed</p>
-        <p class="expiry">00/00</p>
+        <p class="front__number">0000 0000 0000 0000</p>
+        <p class="front__name">Jane Appleseed</p>
+        <div class="front__expiry">
+          <p class="front__month">00</p>
+          <p>/</p>
+          <p class="front__year">00</p>
+        </div>
       </div>
-      <div class="bg"></div>
-      <div class="thank-you">
-        <img
-          src="./images/icon-complete.svg"
-          alt="a check sign"
-          class="check"
-        />
-        <h1>thank you!</h1>
-        <p class="text">We've added your card details</p>
-        <button type="button" onclick="location.href='index.html'">
+
+      <div class="container">
+        <img src="./images/icon-complete.svg" alt="" class="container__check" />
+        <h1 class="container__title">thank you!</h1>
+        <p class="container__text">We've added your card details</p>
+        <button
+          class="container__button"
+          type="button"
+          onclick="location.href='index.html'"
+        >
           Continue
         </button>
       </div>
