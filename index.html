@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/x-icon"
@@ -10,85 +16,97 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Frontend Mentor | Interactive cardBancar details form</title>
+    <title>Frontend Mentor | Interactive Bancar Details Form</title>
     <script src="./card.js" defer></script>
   </head>
   <body>
     <main>
       <div class="back">
-        <p class="cvc">000</p>
+        <p class="back__cvc">000</p>
       </div>
       <div class="front">
-        <img class="logo" src="./images/card-logo.svg" alt="card-logo" />
+        <img class="front__logo" src="./images/card-logo.svg" alt="" />
 
-        <p class="card-no">0000 0000 0000 0000</p>
-        <p class="name">Jane Appleseed</p>
-        <p class="expiry">00/00</p>
+        <p class="front__number">0000 0000 0000 0000</p>
+        <p class="front__name">Jane Appleseed</p>
+        <div class="front__expiry">
+          <p class="front__month">00</p>
+          <p>/</p>
+          <p class="front__year">00</p>
+        </div>
       </div>
-      <div class="bg"></div>
 
       <form class="form" action="./thank-you.html">
-        <label for="name">cardholder name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          maxlength="30"
-          placeholder="e.g. Jane Appleseed"
-        />
-        <label for="card-no">card number</label>
-
-        <!-- add required attribute -->
-        <div>
+        <div class="container">
+          <label class="form__label" for="name">cardholder name</label>
           <input
             type="text"
+            name="name"
+            required
+            id="name"
+            maxlength="18"
+            placeholder="e.g. Jane Appleseed"
+          />
+          <span class="error__nume">Wrong format</span>
+        </div>
+        <div class="container">
+          <label for="card-no" class="form__label">card number</label>
+
+          <!-- add required attribute -->
+
+          <input
+            type="tel"
+            required
             name="card-no"
             id="card-no"
             maxlength="19"
-            pattern="[0-9]"
-            required
             placeholder="e.g. 1234 5678 9123 0000"
           />
-          <span class="error"></span>
+          <span class="error__nr">Wrong format, numbers only</span>
         </div>
-        <div class="grid">
-          <div>
-            <label for="expiry">exp. date (mm/yy)</label>
-            <div>
+        <div class="inline">
+          <div class="inline__expiry">
+            <label class="form__label" for="month">exp. date (mm/yy)</label>
+
+            <div class="inline__expiry__inline">
               <input
-                type="text"
+                required
+                type="tel"
                 maxlength="2"
                 name="expiry"
-                id="expiry"
+                id="month"
                 placeholder="MM"
               />
-              <span class="error-blank"></span>
-            </div>
-            <div>
+
               <input
-                type="text"
+                required
+                type="tel"
                 maxlength="2"
                 name="expiry"
-                class="expiry"
+                id="year"
                 placeholder="YY"
               />
             </div>
+
+            <span class="error__date">Can't be blank</span>
           </div>
-          <div>
-            <label for="cvc">CVC</label>
-            <div>
-              <input
-                type="text"
-                name="cvc"
-                id="cvc"
-                maxlength="3"
-                placeholder="e.g. 123"
-              />
-              <span class="error-blank"></span>
-            </div>
+          <div class="inline__cvc">
+            <label class="form__label" for="cvc">CVC</label>
+
+            <input
+              type="tel"
+              name="cvc"
+              id="cvc"
+              required
+              maxlength="3"
+              placeholder="e.g. 123"
+            />
+            <span class="error__cvc">Can't be blank</span>
           </div>
         </div>
-        <button type="submit">Confirm</button>
+        <button onclick="showText()" class="form__button" type="submit">
+          Confirm
+        </button>
       </form>
     </main>
     <footer></footer>
