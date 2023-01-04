@@ -172,7 +172,6 @@ input::placeholder {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1rem;   
 }
 
 .inline__expiry__inline input {
@@ -366,7 +365,13 @@ span {
     button {
         font-size: 14px;
     }
+    .inline {
+        
+    }
+    .inline__expiry__inline input {
+        max-width: 4rem;
+    }
     .inline__cvc input {
-        max-width: 7rem;
+        max-width: 6rem;
     }
 }
