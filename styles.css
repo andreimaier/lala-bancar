@@ -34,7 +34,7 @@ img, video, svg, video {
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 body {
-    color: var(--font);
+    color: var(--font); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,6 +53,13 @@ body {
     100% {
         opacity: 1;
     }
+}
+h1 {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
 }
 .front {
     position: absolute;
@@ -206,10 +213,6 @@ span {
     margin-top: 0.5rem;
     margin-bottom: 2rem;
 }
-
-
-
-
 @media screen and (min-width: 68.75em) {
     body {
         min-height: 100vh;
@@ -218,21 +221,18 @@ span {
         display: flex;
         justify-content: center;
     }
-   
     .front {
         width: 445px;
         aspect-ratio: 1.8;
         top: 50px;
         left: 5vw;
     }
-    
     .front__logo {
         width: 60px;
         position: absolute;
         top: 20px;
         left: 20px;
     }
-
     .front__number {
         position: absolute;
         top: 120px;
@@ -297,7 +297,6 @@ span {
         display: flex;
         justify-content: center;
     }
-   
     .front {
         position: absolute;
         top: calc( 0.5 * 20vw);
@@ -314,7 +313,6 @@ span {
         top: calc( 0.5 * 5vw);
         left: calc( 0.5 * 5vw);
     }
-    
     .front__number {
         position: absolute;
         top: 55%;

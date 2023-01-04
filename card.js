@@ -17,7 +17,6 @@ const errorNumber = document.querySelector('.error__nr')
 
 
 
-
 nume.addEventListener("input", () => {
     if (/^[a-z .'-]+$/i.test(nume.value)) {
         showNume.textContent = `${nume.value}`.toLocaleUpperCase()
@@ -233,6 +232,5 @@ function showText() {
     sessionStorage.setItem('yearStore', JSON.stringify(year.value))
     sessionStorage.setItem('cvcStore', JSON.stringify(cvc.value))
 }
-
 
 
