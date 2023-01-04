@@ -271,16 +271,14 @@ span {
         left: 360px;
     }
     .form {
-        
         margin: 0 0 0 480px;
         max-width: 400px;
-        /* padding: 5rem; */
     }
     .form input {
         padding: 0.6rem;
     }
     .inline__cvc input {
-        max-width: 15rem;
+        max-width: 13.7rem;
     }
        button {
     font-size: 14px;
