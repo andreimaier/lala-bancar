@@ -35,12 +35,9 @@ img, video, svg, video {
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 body {
     color: var(--font);
-
-    
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-family: 'Space Grotesk';
     font-weight: 500;
     font-size: 18px;
